@@ -13,7 +13,7 @@
  * 命名对照（旧 → 新）：
  *   手动选择→「执印」手动　自动选择→「御风」自动　负载均衡→「混元」均衡
  *   默认代理→「太一」主道　直连→「凡尘」直连　漏网之鱼→「补天」兜底　GLOBAL→保持不变（兼容面板全局模式）
- *   香港→香江　日本→东瀛　美国→花旗　新加坡→狮城　台湾省→宝岛
+ *   中国香港→香江　中国澳门→濠镜　日本→东瀛　美国→花旗　新加坡→狮城　中国台湾→宝岛
  *   低倍率节点→轻羽·低倍　高倍率节点→重岳·高倍　其他节点→散修·散点
  *   自建节点→本命·自建　链式中转→合道·中转　链式落地→合道·落地
  *   FCM→灵鸽·传讯　YouTube→映画·油管　Google→星图·谷歌　AI→天工·灵智
@@ -151,13 +151,19 @@ const directProxies = [
   },
 ];
 
-// 定义地区策略组（国风雅号：香江/东瀛/花旗/狮城/宝岛）
+// 定义地区策略组（国风雅号：香江/濠镜/东瀛/花旗/狮城/宝岛）
 const regionDefinitions = [
   {
     name: '香江',
     flag: '🇭🇰',
     regex: /🇭🇰|香港|(?<![A-Za-z])HKG?(?![A-Za-z])|hong\s*kong/i,
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png',
+  },
+  {
+    name: '濠镜',
+    flag: '🇲🇴',
+    regex: /🇲🇴|澳门|濠江|濠镜|(?<![A-Za-z])MACAU(?![A-Za-z])|(?<![A-Za-z])MO(?![A-Za-z])/i,
+    icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Macao.png',
   },
   {
     name: '东瀛',

@@ -1,5 +1,5 @@
 /**
- * ⛩ 云隐阁 · 国风二次元定制版 mihomo 配置覆写脚本
+ * 🏮 云隐阁 · 国风二次元定制版 mihomo 配置覆写脚本
  * 原作者：AIsouler（https://github.com/AIsouler/MyClash）
  * 原脚本：https://raw.githubusercontent.com/AIsouler/MyClash/main/Script/mihomoScript.js
  * 本版：基于原脚本微改 + 国风二次元化独创
@@ -1469,7 +1469,7 @@ function main(config) {
     'dns-hijack': ['any:53', 'tcp://any:53'],
   };
 
-  // ⛩ 国风增强：TLS/HTTP 域名嗅探，各 APP 分流更精准；QUIC 被拦自动回落 TCP，视频/语音不断流
+  // 🏮 国风增强：TLS/HTTP 域名嗅探，各 APP 分流更精准；QUIC 被拦自动回落 TCP，视频/语音不断流
   newConfig['sniffer'] = {
     enable: true,
     'override-destination': false,

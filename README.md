@@ -126,7 +126,7 @@ https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/guofeng
 | `生成地区自动选择组` | 每个地区附带一个 `·御风` url-test 自动组 |
 | `隐藏地区手动选择组` | 面板中隐藏地区手动选择组，只留自动组 |
 | `生成倍率组` | 生成「轻羽·低倍 / 重岳·高倍」分组 |
-| `过滤高倍率节点` / `过滤非地区节点` | 节点过滤 |
+| `过滤低倍率节点` / `过滤高倍率节点` / `过滤非地区节点` | 节点过滤（`过滤低倍率节点` 为上游新增） |
 | `屏蔽国外QUIC` | 屏蔽国外 UDP 443（QUIC），配合 sniffer 自动回落 TCP |
 | `代理IPV4优先` / `代理IPV6优先` | 节点 IP 栈偏好（二者只开一个） |
 | `链式代理` | 自定义节点作为落地，经「合道·中转」中转 |
@@ -143,6 +143,28 @@ guofeng-mihomo
 ├── README.md
 └── LICENSE
 ```
+
+---
+
+## 🔄 上游同步记录
+
+已同步 [AIsouler/MyClash](https://github.com/AIsouler/MyClash) 全量版 `mihomoScript.js` 从 `9560c72` 到 `35c646e` 的 **11 笔**提交：
+
+| 提交 | 说明 |
+| :--- | :--- |
+| `1ec8f4e` | 优化倍率节点匹配 |
+| `07315d8` | 更换直连策略组 icon |
+| `1874f3c` | 支持自定义是否过滤低倍率节点 |
+| `e1d2939` | 调整 DNS 配置 |
+| `7af9730` | 优化倍率节点匹配 |
+| `b86bb36` | global exclude filter（补充 `过滤` 排除词） |
+| `8e6fcef` | `steam_asn` 更换为 `steam_ip` |
+| `27c8918` | 新增 `tiktok_ip`、`spotify_ip` 规则集 |
+| `1adfe48` | 特定条件下合并节点域名策略（新增 `simplifyDomainPolicy`） |
+| `e2696c8` | 调整规则 |
+| `35c646e` | 优化 |
+
+同步原则：**分流逻辑、规则集、DNS 处理全部跟随上游**；仅策略组 / 地区命名保留云隐阁雅号，四项国风增强（`sniffer`、`global-client-fingerprint`、30s 保活、「御风」50ms 容差）保持不变。
 
 ---
 

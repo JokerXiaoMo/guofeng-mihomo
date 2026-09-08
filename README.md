@@ -1,15 +1,18 @@
 <div align="center">
 
-# 云隐阁 · 国风 mihomo
+<img src="docs/assets/hero.webp" alt="云隐阁 · 国风二次元主视觉" width="100%">
 
-**国风二次元定制版 mihomo 配置覆写脚本**
+# 云隐阁 · 国风 mihomo
 
 *一纸覆写，千机入阁。*
 
 [![内核](https://img.shields.io/badge/内核-mihomo%20%2F%20Clash%20Meta-8A2BE2?style=flat-square)](https://github.com/MetaCubeX/mihomo)
 [![类型](https://img.shields.io/badge/类型-覆写脚本%20Script-CC6699?style=flat-square)](#-使用方法)
 [![风格](https://img.shields.io/badge/风格-国风%20%2F%20二次元-D4A017?style=flat-square)](#-策略组雅号对照)
+[![上游](https://img.shields.io/badge/上游-AIsouler%2FMyClash-B23A2E?style=flat-square)](https://github.com/AIsouler/MyClash)
 [![License](https://img.shields.io/badge/协议-MIT-3DA639?style=flat-square)](#-开源协议)
+
+**📎 [在线主页（含动效）](docs/index.html)** · [脚本直链](#-使用方法) · [上报问题](https://github.com/JokerXiaoMo/guofeng-mihomo/issues)
 
 </div>
 
@@ -17,7 +20,16 @@
 
 ## 📖 简介
 
-**「云隐阁」** 是一份面向 [mihomo](https://github.com/MetaCubeX/mihomo)（Clash Meta）内核的**配置覆写脚本**：将机场订阅覆写为一套国风雅号命名的完整策略组体系，并针对「**超稳定、超低延迟访问各个 APP**」做了四项增强。
+**「云隐阁」** 是一份面向 [mihomo](https://github.com/MetaCubeX/mihomo)（Clash Meta）内核的**配置覆写脚本**：
+
+> 将机场订阅覆写为一套**国风雅号命名**的完整策略组体系，并针对「**超稳定、超低延迟访问各个 APP**」做了四项增强。
+
+**它能做什么**
+
+- 🏮 覆写后，所有策略组以国风雅号命名（对照见下表），面板颜值直接拉满
+- 🔁 订阅更新后重新覆写即可，地区组、倍率组、分流组**全部自动生成**，无需手动维护
+- 🩹 自动处理机场私有 DNS / hosts 映射导致的节点解析问题，**DNS 无泄露**
+- 🎛 顶部 `ruleOptionsEnable` 提供全部开关，注释齐全，想改就改
 
 > 🙏 **本项目基于 [AIsouler/MyClash](https://github.com/AIsouler/MyClash) 的 `mihomoScript.js` 微改而来**——分流逻辑、规则集与节点处理均出自原作者之手，在此致以诚挚谢意。本版在其基础上做了**国风二次元化命名**与**连接稳定性增强**，并重新设计了文档与项目结构。
 
@@ -140,9 +152,16 @@ https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/guofeng
 guofeng-mihomo
 ├── Script/
 │   └── guofeng-mihomo.js   # 覆写脚本本体
+├── docs/
+│   ├── index.html          # 在线主页（含二次元动效）
+│   └── assets/
+│       └── hero.webp       # 主视觉背景图
 ├── README.md
 └── LICENSE
 ```
+
+> 想看动效版主页？开启 GitHub Pages（Settings → Pages → Source 选 `main` / `(root)` 或 `/docs`）后访问
+> `https://jokerxiaomo.github.io/guofeng-mihomo/` 即可；本地直接双击 `docs/index.html` 也行。
 
 ---
 
@@ -170,16 +189,51 @@ guofeng-mihomo
 
 ## 🙏 致谢
 
-本项目得以成立，离不开以下项目与作者（**排名分先后，诚意不分先后**）：
+> 以下名单**逐项核对过脚本内的实际引用**（引用次数以当前版本 `Script/guofeng-mihomo.js` 为准），排名分先后、诚意不分先后。
 
-- **[AIsouler/MyClash](https://github.com/AIsouler/MyClash)** —— ⭐ **原脚本作者**。本项目的覆写脚本基于其 `mihomoScript.js` 微改而来：节点过滤与地区归组、机场私有 DNS / hosts 修复、倍率识别、链式代理等核心能力均出自原作者之手，云隐阁不过是在巨人的肩上描了一层国风的漆。**强烈建议去给原项目点一个 Star。**
+**⭐ 原脚本作者**
+
+- **[AIsouler/MyClash](https://github.com/AIsouler/MyClash)** —— 本项目的根基。覆写脚本基于其 `mihomoScript.js` 微改而来：节点过滤与地区归组、机场私有 DNS / hosts 修复、倍率识别、链式代理等核心能力均出自原作者之手，云隐阁不过是在巨人的肩上描了一层国风的漆。**强烈建议去给原项目点一个 Star。**
+
+**🧠 内核与客户端**
+
 - [MetaCubeX/mihomo](https://github.com/MetaCubeX/mihomo) —— 强大的代理内核
-- [appshubcc/bett-rules](https://github.com/appshubcc/bett-rules) —— 规则集来源
-- [appshubcc/Bettbox](https://github.com/appshubcc/Bettbox) —— 好用、省电且内存占用低的代理软件（友情推荐）
-- [Koolson/Qure](https://github.com/Koolson/Qure) —— 策略组图标
-- [217heidai/AdBlockFilters](https://github.com/217heidai/AdBlockFilters) —— 广告过滤规则
-- [wwqgtxx/clash-rules](https://github.com/wwqgtxx/clash-rules)、[666OS/rules](https://github.com/666OS/rules)、[binaryu/emos-proxy-rule](https://github.com/binaryu/emos-proxy-rule) —— 补充规则
+- [appshubcc/Bettbox](https://github.com/appshubcc/Bettbox) —— 好用、省电且内存占用低的代理软件（友情推荐，脚本原生适配其图形化配置）
+
+**📜 规则集**
+
+- [appshubcc/bett-rules](https://github.com/appshubcc/bett-rules) —— **主要规则集来源**（引用 36 处）
+- [666OS/rules](https://github.com/666OS/rules) —— Emby 域名规则（1 处）
+- [binaryu/emos-proxy-rule](https://github.com/binaryu/emos-proxy-rule) —— Emby 规则补充（1 处）
+- [217heidai/adblockfilters](https://github.com/217heidai/adblockfilters) —— 广告过滤规则（1 处）
+- `cn-additional-list` 国内补充规则 —— 来自 `static-file-global.353355.xyz`（1 处）
+
+**🎨 策略组图标**
+
+- [Koolson/Qure](https://github.com/Koolson/Qure) —— **主要图标来源**（引用 34 处）
+- [MiToverG422/Qure](https://github.com/MiToverG422/Qure) —— 补充 FCM 图标（1 处）
+- [lige47/QuanX-icon-rule](https://github.com/lige47/QuanX-icon-rule) —— 补充 PikPak / 加密货币 / E-Hentai 图标（3 处）
+
+**🖥 面板**
+
 - [Zephyruso/zashboard](https://github.com/Zephyruso/zashboard) —— 控制面板
+
+**🌐 DNS 服务**
+
+- 阿里 DNS（`223.5.5.5`）· 腾讯 DNSPod（`119.29.29.29` / `1.12.12.12`）· [Cloudflare DNS](https://1.1.1.1) · [Google DNS](https://dns.google)
+
+<details>
+<summary>🔍 核对说明：本次调整了什么</summary>
+
+| 项目 | 动作 | 原因 |
+| :--- | :--- | :--- |
+| `lige47/QuanX-icon-rule` | ➕ 新增 | 脚本实际引用 3 处图标，此前遗漏 |
+| `MiToverG422/Qure` | ➕ 新增 | 脚本实际引用 1 处 FCM 图标，此前遗漏 |
+| `wwqgtxx/clash-rules` | ➖ 移除 | 当前脚本已无任何引用（上游 `a87f98a` 移除了相关规则） |
+| `217heidai/AdBlockFilters` | ✏️ 更名 | 实际仓库名为小写 `217heidai/adblockfilters` |
+| DNS 服务商 | ➕ 新增 | 脚本默认 DNS 上游，此前未列 |
+
+</details>
 
 ---
 

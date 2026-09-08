@@ -160,8 +160,8 @@ guofeng-mihomo
 └── LICENSE
 ```
 
-> 想看动效版主页？开启 GitHub Pages（Settings → Pages → Source 选 `main` / `(root)` 或 `/docs`）后访问
-> `https://jokerxiaomo.github.io/guofeng-mihomo/` 即可；本地直接双击 `docs/index.html` 也行。
+> 想看动效版主页？开启 GitHub Pages：**Settings → Pages → Source 选 `Deploy from a branch` → Branch 选 `main`、目录选 `/docs`**（⚠️ 必须选 `/docs`，选 `/(root)` 会 404，因为 `index.html` 在 docs 里）。
+> 保存后等 1~2 分钟构建即可访问 `https://jokerxiaomo.github.io/guofeng-mihomo/`；本地直接双击 `docs/index.html` 也行。
 
 ---
 

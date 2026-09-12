@@ -12,7 +12,7 @@
 [![上游](https://img.shields.io/badge/上游-AIsouler%2FMyClash-AD493B?style=flat-square)](https://github.com/AIsouler/MyClash)
 [![License](https://img.shields.io/badge/协议-MIT-3DA639?style=flat-square)](#-开源协议)
 
-**📎 [在线长卷（含动效）](docs/index.html)** · [脚本直链](#-使用方法) · [上报问题](https://github.com/JokerXiaoMo/guofeng-mihomo/issues)
+**📎 [在线长卷（含动效）](docs/index.html)** · [脚本直链](#-使用方法) · [上报问题](https://github.com/JokerXiaoMo/taobai-zanhua/issues)
 
 </div>
 
@@ -111,12 +111,12 @@
 脚本直链，可直接在支持「链接覆写 / 远程脚本」的客户端中填入：
 
 ```
-https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/taobai-zanhua.js
+https://raw.githubusercontent.com/JokerXiaoMo/taobai-zanhua/main/Script/taobai-zanhua.js
 ```
 
 > 若 `raw.githubusercontent.com` 无法直连，可改用加速前缀：
 > ```
-> https://fastly.jsdelivr.net/gh/JokerXiaoMo/guofeng-mihomo@main/Script/taobai-zanhua.js
+> https://fastly.jsdelivr.net/gh/JokerXiaoMo/taobai-zanhua@main/Script/taobai-zanhua.js
 > ```
 
 ### Clash Verge Rev（覆写方式）
@@ -162,7 +162,7 @@ https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/taobai-
 ## 📁 目录结构
 
 ```
-guofeng-mihomo
+taobai-zanhua
 ├── Script/
 │   └── taobai-zanhua.js    # 覆写脚本本体（桃白簪花）
 ├── docs/
@@ -174,7 +174,7 @@ guofeng-mihomo
 ```
 
 > 想看动效版长卷？开启 GitHub Pages：**Settings → Pages → Source 选 `Deploy from a branch` → Branch 选 `main`、目录选 `/docs`**（⚠️ 必须选 `/docs`，选 `/(root)` 会 404，因为 `index.html` 在 docs 里）。
-> 保存后等 1~2 分钟构建即可访问 `https://jokerxiaomo.github.io/guofeng-mihomo/`；本地直接双击 `docs/index.html` 也行。
+> 保存后等 1~2 分钟构建即可访问 `https://jokerxiaomo.github.io/taobai-zanhua/`；本地直接双击 `docs/index.html` 也行。
 
 ---
 

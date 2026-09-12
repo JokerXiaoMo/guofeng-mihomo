@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>云隐阁 · 国风 mihomo 覆写脚本</title>
-<meta name="description" content="国风二次元定制版 mihomo 配置覆写脚本 —— 一纸覆写，千机入阁。">
+<title>桃白簪花 · mihomo 覆写脚本</title>
+<meta name="description" content="中式动漫长卷风 mihomo 配置覆写脚本 —— 以桃为印，收存山河。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f6f2ea;
-    --paper-2:#efe9dd;
-    --ink:#22303f;
-    --ink-soft:#5a6b7b;
-    --gold:#b8892b;
-    --gold-light:#d9b45c;
-    --cinnabar:#b23a2e;
-    --jade:#3f7d6e;
+    --paper:#f8f2e5;
+    --paper-2:#f1e9da;
+    --ink:#102a36;
+    --ink-soft:#5d6f75;
+    --gold:#c49a51;
+    --gold-light:#dfc389;
+    --cinnabar:#ad493b;
+    --jade:#8fb3aa;
     --card:rgba(255,255,255,.72);
-    --line:rgba(34,48,63,.12);
-    --shadow:0 10px 40px rgba(34,48,63,.10);
+    --line:rgba(16,42,54,.12);
+    --shadow:0 10px 40px rgba(16,42,54,.10);
     --serif:'Noto Serif SC','Source Han Serif SC','Songti SC','SimSun',serif;
     --brush:'Ma Shan Zheng','Noto Serif SC',cursive;
   }
@@ -319,10 +319,10 @@
 <div class="mist"></div>
 
 <nav class="nav" id="nav">
-  <a class="brand" href="#top">云隐阁</a>
+  <a class="brand" href="#top">桃白簪花</a>
   <a class="item" href="#intro">简介</a>
   <a class="item" href="#features">四项增强</a>
-  <a class="item" href="#mapping">雅号对照</a>
+  <a class="item" href="#mapping">卷名对照</a>
   <a class="item" href="#usage">使用方法</a>
   <a class="item" href="#thanks">致谢</a>
   <a class="item" href="https://github.com/JokerXiaoMo/guofeng-mihomo">GitHub ↗</a>
@@ -331,51 +331,51 @@
 <header class="hero" id="top">
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-inner">
-    <div class="seal"><i></i>GUOFENG · MIHOMO</div>
-    <h1 class="title">云隐<em>阁</em></h1>
-    <div class="slogan">一纸覆写 · <b>千机入阁</b></div>
+    <div class="seal"><i></i>TAOBAI · ZANHUA</div>
+    <h1 class="title">桃白<em>簪花</em></h1>
+    <div class="slogan">以桃为印 · <b>收存山河</b></div>
     <p class="desc">
-      面向 <strong>mihomo / Clash Meta</strong> 内核的国风二次元定制版配置覆写脚本，
-      将机场订阅覆写为一套雅号策略组体系，并为「超稳定、超低延迟访问」做了四项增强。
+      面向 <strong>mihomo / Clash Meta</strong> 内核的中式动漫长卷风配置覆写脚本，
+      将机场订阅覆写为一套卷名策略组体系，并为「超稳定、超低延迟访问」做了四项增强。
     </p>
     <div class="badges">
       <span class="badge">⛩ 内核 mihomo</span>
       <span class="badge">📜 类型 覆写脚本</span>
-      <span class="badge">🏮 风格 国风 · 二次元</span>
+      <span class="badge">🍑 风格 中式动漫 · 长卷</span>
       <span class="badge">🧩 基于 AIsouler/MyClash</span>
     </div>
     <div class="cta">
-      <a class="btn primary" href="#usage">入 阁 使 用</a>
+      <a class="btn primary" href="#usage">展 卷 使 用</a>
       <a class="btn ghost" href="https://github.com/JokerXiaoMo/guofeng-mihomo">查 看 源 码</a>
     </div>
   </div>
-  <div class="scroll-hint">向下探阁<span></span></div>
+  <div class="scroll-hint">向下展卷<span></span></div>
 </header>
 
 <main>
   <!-- 简介 -->
   <section id="intro">
     <div class="sec-head reveal">
-      <div class="cn">阁 中 简 介</div>
+      <div class="cn">卷 首 简 介</div>
       <div class="en">Introduction</div>
       <div class="divider">❖</div>
     </div>
     <div class="intro-grid">
       <div class="reveal">
         <p class="lead">
-          <strong>「云隐阁」</strong>是一份面向 mihomo（Clash Meta）内核的<strong>配置覆写脚本</strong>：
-          将机场订阅覆写为一套国风雅号命名的完整策略组体系，并针对
+          <strong>「桃白簪花」</strong>是一份面向 mihomo（Clash Meta）内核的<strong>配置覆写脚本</strong>：
+          将机场订阅覆写为一套长卷式命名的完整策略组体系，并针对
           <strong>「超稳定、超低延迟访问各个 APP」</strong>做了四项增强。
         </p>
         <div class="quote">
           🙏 本项目基于 <b>AIsouler/MyClash</b> 的 <code>mihomoScript.js</code> 微改而来——
           分流逻辑、规则集与节点处理均出自原作者之手。本版在其基础上做了
-          <b>国风二次元化命名</b>与<b>连接稳定性增强</b>，并重新设计了文档与项目结构。
+          <b>长卷式命名重塑</b>与<b>连接稳定性增强</b>，并重新设计了文档与项目结构。
         </div>
       </div>
       <div class="frame reveal">
-        <img src="assets/hero.webp" alt="云隐阁 · 国风二次元主视觉">
-        <div class="cap">⛩ 云隐阁 · 主视觉</div>
+        <img src="assets/hero.webp" alt="桃白簪花 · 中式动漫主视觉">
+        <div class="cap">🌸 桃白簪花 · 主视觉</div>
       </div>
     </div>
   </section>
@@ -401,7 +401,7 @@
         <p><code>keep-alive-interval</code> 与 <code>tcp-keep-alive-idle</code> 均 30s，NAT 映射不易失效，减少重连与延迟抖动。</p>
       </div>
       <div class="card reveal"><span class="num">肆</span>
-        <h3><span class="ic">🌬</span>「御风」自动组</h3>
+        <h3><span class="ic">🌸</span>「寻花」自动组</h3>
         <p>50ms 容差 url-test 实时测速，始终自动切换最低延迟线路。</p>
       </div>
     </div>
@@ -413,7 +413,7 @@
   <!-- 雅号对照 -->
   <section id="mapping">
     <div class="sec-head reveal">
-      <div class="cn">雅 号 对 照</div>
+      <div class="cn">卷 名 对 照</div>
       <div class="en">Naming Map</div>
       <div class="divider">❖</div>
     </div>
@@ -421,36 +421,36 @@
       <div class="map-block reveal">
         <h4>基础策略组</h4>
         <table><tbody>
-          <tr><td class="o">手动选择</td><td class="arr">➜</td><td class="n">「执印」手动</td></tr>
-          <tr><td class="o">自动选择</td><td class="arr">➜</td><td class="n">「御风」自动</td></tr>
-          <tr><td class="o">负载均衡</td><td class="arr">➜</td><td class="n">「混元」均衡</td></tr>
-          <tr><td class="o">默认代理</td><td class="arr">➜</td><td class="n">「太一」主道</td></tr>
-          <tr><td class="o">直连</td><td class="arr">➜</td><td class="n">「凡尘」直连</td></tr>
-          <tr><td class="o">漏网之鱼</td><td class="arr">➜</td><td class="n">「补天」兜底</td></tr>
+          <tr><td class="o">手动选择</td><td class="arr">➜</td><td class="n">🖐️ 拾印 | 手动</td></tr>
+          <tr><td class="o">自动选择</td><td class="arr">➜</td><td class="n">🌸 寻花 | 自动</td></tr>
+          <tr><td class="o">负载均衡</td><td class="arr">➜</td><td class="n">🍃 分花 | 均衡</td></tr>
+          <tr><td class="o">默认代理</td><td class="arr">➜</td><td class="n">🍑 桃印 | 总卷</td></tr>
+          <tr><td class="o">直连</td><td class="arr">➜</td><td class="n">🏠 归檐 | 直连</td></tr>
+          <tr><td class="o">漏网之鱼</td><td class="arr">➜</td><td class="n">🌙 拾遗 | 兜底</td></tr>
         </tbody></table>
       </div>
       <div class="map-block reveal">
         <h4>地区与倍率</h4>
         <table><tbody>
-          <tr><td class="o">中国香港</td><td class="arr">➜</td><td class="n">香江 🇭🇰</td></tr>
-          <tr><td class="o">中国澳门</td><td class="arr">➜</td><td class="n">濠镜 🇲🇴</td></tr>
-          <tr><td class="o">日本</td><td class="arr">➜</td><td class="n">东瀛 🇯🇵</td></tr>
-          <tr><td class="o">美国</td><td class="arr">➜</td><td class="n">花旗 🇺🇸</td></tr>
-          <tr><td class="o">新加坡</td><td class="arr">➜</td><td class="n">狮城 🇸🇬</td></tr>
-          <tr><td class="o">中国台湾</td><td class="arr">➜</td><td class="n">宝岛 🇨🇳</td></tr>
-          <tr><td class="o">低倍率节点</td><td class="arr">➜</td><td class="n">轻羽·低倍</td></tr>
-          <tr><td class="o">高倍率节点</td><td class="arr">➜</td><td class="n">重岳·高倍</td></tr>
+          <tr><td class="o">中国香港</td><td class="arr">➜</td><td class="n">🏮 灯 | 香江</td></tr>
+          <tr><td class="o">中国澳门</td><td class="arr">➜</td><td class="n">🗺️ 濠镜</td></tr>
+          <tr><td class="o">日本</td><td class="arr">➜</td><td class="n">🖌️ 砚 | 东瀛</td></tr>
+          <tr><td class="o">美国</td><td class="arr">➜</td><td class="n">☁️ 羽 | 花旗</td></tr>
+          <tr><td class="o">新加坡</td><td class="arr">➜</td><td class="n">🧣 绫 | 狮城</td></tr>
+          <tr><td class="o">中国台湾</td><td class="arr">➜</td><td class="n">📜 卷 | 宝岛</td></tr>
+          <tr><td class="o">低倍率节点</td><td class="arr">➜</td><td class="n">⚖️ 轻羽·低倍</td></tr>
+          <tr><td class="o">高倍率节点</td><td class="arr">➜</td><td class="n">🔥 重岳·高倍</td></tr>
         </tbody></table>
       </div>
       <div class="map-block reveal">
         <h4>分流策略组（节选）</h4>
         <table><tbody>
-          <tr><td class="o">Telegram</td><td class="arr">➜</td><td class="n">飞书·电报</td></tr>
-          <tr><td class="o">YouTube</td><td class="arr">➜</td><td class="n">映画·油管</td></tr>
-          <tr><td class="o">Netflix</td><td class="arr">➜</td><td class="n">映雪·奈飞</td></tr>
-          <tr><td class="o">Steam</td><td class="arr">➜</td><td class="n">雾阁·蒸汽</td></tr>
-          <tr><td class="o">Spotify</td><td class="arr">➜</td><td class="n">韶音·声乐</td></tr>
-          <tr><td class="o">AdBlock</td><td class="arr">➜</td><td class="n">结界·拦截</td></tr>
+          <tr><td class="o">Telegram</td><td class="arr">➜</td><td class="n">✈️ 飞书·电报</td></tr>
+          <tr><td class="o">YouTube</td><td class="arr">➜</td><td class="n">🎬 映画·油管</td></tr>
+          <tr><td class="o">Netflix</td><td class="arr">➜</td><td class="n">🎞️ 映雪·奈飞</td></tr>
+          <tr><td class="o">Steam</td><td class="arr">➜</td><td class="n">🎮 雾阁·蒸汽</td></tr>
+          <tr><td class="o">Spotify</td><td class="arr">➜</td><td class="n">🎧 韶音·声乐</td></tr>
+          <tr><td class="o">AdBlock</td><td class="arr">➜</td><td class="n">🚫 掩扉 | 拦截</td></tr>
         </tbody></table>
       </div>
     </div>
@@ -459,7 +459,7 @@
   <!-- 使用方法 -->
   <section id="usage">
     <div class="sec-head reveal">
-      <div class="cn">入 阁 之 法</div>
+      <div class="cn">展 卷 之 法</div>
       <div class="en">Usage</div>
       <div class="divider">❖</div>
     </div>
@@ -468,17 +468,17 @@
         <div><h5>复制脚本直链</h5><p>在支持「链接覆写 / 远程脚本」的客户端中直接填入下方地址。</p></div>
       </div>
       <div class="step reveal">
-        <div><h5>或在 Clash Verge Rev 中粘贴</h5><p>订阅列表 → 右键机场订阅 → <b>编辑脚本</b>，粘贴 <code>Script/guofeng-mihomo.js</code> 全文保存。</p></div>
+        <div><h5>或在 Clash Verge Rev 中粘贴</h5><p>订阅列表 → 右键机场订阅 → <b>编辑脚本</b>，粘贴 <code>Script/taobai-zanhua.js</code> 全文保存。</p></div>
       </div>
       <div class="step reveal">
         <div><h5>关闭客户端 DNS 覆写</h5><p>设置 → DNS 覆写关闭，交给脚本接管，避免冲突。</p></div>
       </div>
       <div class="step reveal">
-        <div><h5>重新激活订阅</h5><p>即可看到全套国风策略组。Bettbox 用户可直接图形化开关各项功能。</p></div>
+        <div><h5>重新激活订阅</h5><p>即可看到全套卷名策略组。Bettbox 用户可直接图形化开关各项功能。</p></div>
       </div>
     </div>
     <div class="copybox reveal" id="rawBox">
-      https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/guofeng-mihomo.js
+      https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/taobai-zanhua.js
       <button id="copyBtn" style="position:absolute;top:.5rem;right:.7rem;border:none;background:none;color:var(--gold);cursor:pointer;font-size:.8rem;letter-spacing:.1em">复制</button>
     </div>
     <div class="warn reveal">
@@ -490,7 +490,7 @@
   <!-- 致谢 -->
   <section id="thanks">
     <div class="sec-head reveal">
-      <div class="cn">阁 中 谢 意</div>
+      <div class="cn">卷 末 谢 意</div>
       <div class="en">Acknowledgements</div>
       <div class="divider">❖</div>
     </div>
@@ -537,7 +537,7 @@
 </main>
 
 <footer>
-  <div class="brush">阁中一盏灯 · 照夜行之人</div>
+  <div class="brush">簪花一树 · 与君同行</div>
   <p>本项目仅供学习与研究网络技术使用，不提供任何节点 / 订阅，也不承载任何流量。请遵守所在地区的法律法规。</p>
   <p style="margin-top:.5rem">脚本修改版著作权归属原作者 <a href="https://github.com/AIsouler/MyClash">AIsouler</a> · 文档与项目结构以 <a href="https://github.com/JokerXiaoMo/guofeng-mihomo/blob/main/LICENSE">MIT</a> 协议开源</p>
 </footer>
@@ -591,7 +591,7 @@
   /* 复制 */
   var btn=document.getElementById('copyBtn');
   btn.addEventListener('click',function(){
-    var t='https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/guofeng-mihomo.js';
+    var t='https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/taobai-zanhua.js';
     (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){
       btn.textContent='已复制 ✓';setTimeout(function(){btn.textContent='复制'},1800);
     }).catch(function(){btn.textContent='请手动复制'});

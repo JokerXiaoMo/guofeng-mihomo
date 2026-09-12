@@ -1,18 +1,18 @@
 <div align="center">
 
-<img src="docs/assets/hero.webp" alt="云隐阁 · 国风二次元主视觉" width="100%">
+<img src="docs/assets/hero.webp" alt="桃白簪花 · 中式动漫主视觉" width="100%">
 
-# 云隐阁 · 国风 mihomo
+# 桃白簪花 · mihomo
 
-*一纸覆写，千机入阁。*
+*以中国桃花与白桃为印，收存山河、人物与相守心事。*
 
 [![内核](https://img.shields.io/badge/内核-mihomo%20%2F%20Clash%20Meta-8A2BE2?style=flat-square)](https://github.com/MetaCubeX/mihomo)
 [![类型](https://img.shields.io/badge/类型-覆写脚本%20Script-CC6699?style=flat-square)](#-使用方法)
-[![风格](https://img.shields.io/badge/风格-国风%20%2F%20二次元-D4A017?style=flat-square)](#-策略组雅号对照)
-[![上游](https://img.shields.io/badge/上游-AIsouler%2FMyClash-B23A2E?style=flat-square)](https://github.com/AIsouler/MyClash)
+[![风格](https://img.shields.io/badge/风格-中式动漫%20%2F%20长卷-C49A51?style=flat-square)](#-策略组卷名对照)
+[![上游](https://img.shields.io/badge/上游-AIsouler%2FMyClash-AD493B?style=flat-square)](https://github.com/AIsouler/MyClash)
 [![License](https://img.shields.io/badge/协议-MIT-3DA639?style=flat-square)](#-开源协议)
 
-**📎 [在线主页（含动效）](docs/index.html)** · [脚本直链](#-使用方法) · [上报问题](https://github.com/JokerXiaoMo/guofeng-mihomo/issues)
+**📎 [在线长卷（含动效）](docs/index.html)** · [脚本直链](#-使用方法) · [上报问题](https://github.com/JokerXiaoMo/guofeng-mihomo/issues)
 
 </div>
 
@@ -20,18 +20,18 @@
 
 ## 📖 简介
 
-**「云隐阁」** 是一份面向 [mihomo](https://github.com/MetaCubeX/mihomo)（Clash Meta）内核的**配置覆写脚本**：
+**「桃白簪花」** 是一份面向 [mihomo](https://github.com/MetaCubeX/mihomo)（Clash Meta）内核的**配置覆写脚本**：
 
-> 将机场订阅覆写为一套**国风雅号命名**的完整策略组体系，并针对「**超稳定、超低延迟访问各个 APP**」做了四项增强。
+> 将机场订阅覆写为一套**长卷式命名**的完整策略组体系，并针对「**超稳定、超低延迟访问各个 APP**」做了四项增强。
 
 **它能做什么**
 
-- 🏮 覆写后，所有策略组以国风雅号命名（对照见下表），面板颜值直接拉满
+- 🍑 覆写后，所有策略组以「卷名」命名（对照见下表），面板如一幅缓缓展开的长卷
 - 🔁 订阅更新后重新覆写即可，地区组、倍率组、分流组**全部自动生成**，无需手动维护
 - 🩹 自动处理机场私有 DNS / hosts 映射导致的节点解析问题，**DNS 无泄露**
 - 🎛 顶部 `ruleOptionsEnable` 提供全部开关，注释齐全，想改就改
 
-> 🙏 **本项目基于 [AIsouler/MyClash](https://github.com/AIsouler/MyClash) 的 `mihomoScript.js` 微改而来**——分流逻辑、规则集与节点处理均出自原作者之手，在此致以诚挚谢意。本版在其基础上做了**国风二次元化命名**与**连接稳定性增强**，并重新设计了文档与项目结构。
+> 🙏 **本项目基于 [AIsouler/MyClash](https://github.com/AIsouler/MyClash) 的 `mihomoScript.js` 微改而来**——分流逻辑、规则集与节点处理均出自原作者之手，在此致以诚挚谢意。本版在其基础上做了**长卷式命名重塑**与**连接稳定性增强**，并重新设计了文档与项目结构。
 
 ---
 
@@ -42,52 +42,65 @@
 | 1 | **sniffer 域名嗅探** | TLS/HTTP 域名嗅探，分流更精准；QUIC 被拦截时自动回落 TCP，视频 / 语音不断流 |
 | 2 | **`global-client-fingerprint: chrome`** | 统一 TLS 指纹，降低 CDN 风控拦截概率，连接更稳 |
 | 3 | **`keep-alive-interval` 30s + `tcp-keep-alive-idle` 30s** | 空闲保活，NAT 映射不易失效，减少重连与延迟抖动 |
-| 4 | **「御风」自动组 · 50ms 容差 url-test** | 实时测速、始终自动切换最低延迟线路 |
+| 4 | **「🌸 寻花」自动组 · 50ms 容差 url-test** | 实时测速、始终自动切换最低延迟线路 |
 
 此外完整继承了原脚本的招牌能力：
 
 - 🔄 根据节点名称**动态生成地区策略组**（自动补全国旗、剔除信息节点）
 - ⚖️ 自动识别**低倍率 / 高倍率**节点并归类
 - 🩹 自动解决机场**私有 DNS / hosts 映射**导致的节点域名解析问题（hosts 改写进节点 server），DNS 无泄露
-- 🧩 支持**自定义节点**（自动生成「本命·自建」组）与**链式代理**（自定义节点作落地、经「合道·中转」中转）
+- 🧩 支持**自定义节点**（自动生成「🪶 本命·自建」组）与**链式代理**（自定义节点作落地、经「🌉 合道·中转」中转）
 - 🚫 可选屏蔽国外 QUIC、过滤高倍率 / 非地区节点、IPv4 / IPv6 优先
 
 ---
 
-## 🏮 策略组雅号对照
+## 🗂 命名体系
 
-**基础策略组**
+命名取自站点意象——**桃花、白桃、长卷、簪花、五灵守卷**。四层结构，层层展开：
 
-| 原名 | 云隐阁雅号 | | 原名 | 云隐阁雅号 |
+### 卷首 · 桃印起卷
+
+| 原名 | 卷名 | 卷意 |
+| :--- | :--- | :--- |
+| 默认代理 | **🍑 桃印 \| 总卷** | 万流归卷，一切由此起笔 |
+| 手动选择 | **🖐️ 拾印 \| 手动** | 按心而择，一枚印鉴亲手盖下 |
+| 自动选择 | **🌸 寻花 \| 自动** | 循花瓣最轻的落处，自动择路 |
+| 负载均衡 | **🍃 分花 \| 均衡** | 分花同承，负荷不偏倚 |
+
+### 卷二 · 行止（三条去路）
+
+| 原名 | 卷名 | 卷意 |
+| :--- | :--- | :--- |
+| 直连 | **🏠 归檐 \| 直连** | 乡音不远行，家门之内直去直回 |
+| 广告拦截 | **🚫 掩扉 \| 拦截** | 帘外不迎，广告与骚扰止于门前 |
+| 漏网之鱼 | **🌙 拾遗 \| 兜底** | 漏尽处皆有所归，未有遗落 |
+
+### 卷三 · 山河（五灵守卷，各镇一方）
+
+| 地区 | 卷名 | | 类型 | 卷名 |
 | :--- | :--- | :-: | :--- | :--- |
-| 手动选择 | 「执印」手动 | | 默认代理 | 「太一」主道 |
-| 自动选择 | 「御风」自动 | | 直连 | 「凡尘」直连 |
-| 负载均衡 | 「混元」均衡 | | 漏网之鱼 | 「补天」兜底 |
+| 中国香港 | **🏮 灯 \| 香江** | | 低倍率节点 | **⚖️ 轻羽·低倍** |
+| 中国澳门 | **🗺️ 濠镜** | | 高倍率节点 | **🔥 重岳·高倍** |
+| 日本 | **🖌️ 砚 \| 东瀛** | | 其他节点 | **🪶 散修·散点** |
+| 美国 | **☁️ 羽 \| 花旗** | | 自建节点 | **🪶 本命·自建** |
+| 新加坡 | **🧣 绫 \| 狮城** | | 链式中转 | **🌉 合道·中转** |
+| 中国台湾 | **📜 卷 \| 宝岛** | | 链式落地 | **🌉 合道·落地** |
 
-**地区与倍率**
+### 卷四 · 分卷（十余项服务，各归其卷）
 
-| 原名 | 雅号 | | 原名 | 雅号 |
+| 服务 | 卷名 | | 服务 | 卷名 |
 | :--- | :--- | :-: | :--- | :--- |
-| 中国香港 | 香江 🇭🇰 | | 低倍率节点 | 轻羽·低倍 |
-| 中国澳门 | 濠镜 🇲🇴 | | 高倍率节点 | 重岳·高倍 |
-| 日本 | 东瀛 🇯🇵 | | 其他节点 | 散修·散点 |
-| 美国 | 花旗 🇺🇸 | | 自建节点 | 本命·自建 |
-| 新加坡 | 狮城 🇸🇬 | | 链式中转 | 合道·中转 |
-| 中国台湾 | 宝岛 🇨🇳 | | 链式落地 | 合道·落地 |
+| Google FCM | **💬 灵鸽·传讯** | | Telegram | **✈️ 飞书·电报** |
+| YouTube | **🎬 映画·油管** | | Steam | **🎮 雾阁·蒸汽** |
+| Google | **🗺️ 星图·谷歌** | | TikTok | **🎵 幻音·短影** |
+| 国外 AI | **🤖 天工·灵智** | | Twitter | **🕊️ 栖鸾·推特** |
+| Microsoft | **🪟 云笈·微软** | | Instagram | **📸 绘镜·影格** |
+| Apple | **🍎 玉果·苹果** | | Netflix | **🎞️ 映雪·奈飞** |
+| Emby | **📚 藏经阁·影库** | | PikPak | **🎒 行囊·网盘** |
+| Spotify | **🎧 韶音·声乐** | | 加密货币 | **🪙 通宝·加密** |
+| E-Hentai | **🔖 秘阁·E站** | | 广告拦截 | **🚫 掩扉 \| 拦截** |
 
-**分流策略组**
-
-| 服务 | 雅号 | | 服务 | 雅号 |
-| :--- | :--- | :-: | :--- | :--- |
-| Google FCM | 灵鸽·传讯 | | Telegram | 飞书·电报 |
-| YouTube | 映画·油管 | | Steam | 雾阁·蒸汽 |
-| Google | 星图·谷歌 | | TikTok | 幻音·短影 |
-| 国外 AI | 天工·灵智 | | Twitter | 栖鸾·推特 |
-| Microsoft | 云笈·微软 | | Instagram | 绘镜·影格 |
-| Apple | 玉果·苹果 | | Netflix | 映雪·奈飞 |
-| Emby | 藏经阁·影库 | | PikPak | 行囊·网盘 |
-| Spotify | 韶音·声乐 | | 加密货币 | 通宝·加密 |
-| E-Hentai | 秘阁·E站 | | 广告拦截 | 结界·拦截 |
+> `GLOBAL` 保持不变，以兼容面板全局模式。
 
 ---
 
@@ -98,20 +111,20 @@
 脚本直链，可直接在支持「链接覆写 / 远程脚本」的客户端中填入：
 
 ```
-https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/guofeng-mihomo.js
+https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/taobai-zanhua.js
 ```
 
 > 若 `raw.githubusercontent.com` 无法直连，可改用加速前缀：
 > ```
-> https://fastly.jsdelivr.net/gh/JokerXiaoMo/guofeng-mihomo@main/Script/guofeng-mihomo.js
+> https://fastly.jsdelivr.net/gh/JokerXiaoMo/guofeng-mihomo@main/Script/taobai-zanhua.js
 > ```
 
 ### Clash Verge Rev（覆写方式）
 
 1. 订阅列表 → 右键你的机场订阅 → **编辑脚本**（或 全局扩展配置 → Script）
-2. 粘贴 [`Script/guofeng-mihomo.js`](Script/guofeng-mihomo.js) 全文保存
+2. 粘贴 [`Script/taobai-zanhua.js`](Script/taobai-zanhua.js) 全文保存
 3. **关闭客户端自带的 DNS 覆写**（设置 → DNS 覆写关闭），交给脚本接管
-4. 重新激活订阅，即可看到全套国风策略组
+4. 重新激活订阅，即可看到全套卷名策略组
 
 ### Mihomo Party / 其他 Script 覆写客户端
 
@@ -135,14 +148,14 @@ https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/guofeng
 
 | 开关 | 说明 |
 | :--- | :--- |
-| `生成地区自动选择组` | 每个地区附带一个 `·御风` url-test 自动组 |
+| `生成地区自动选择组` | 每个地区附带一个 `·寻花` url-test 自动组 |
 | `隐藏地区手动选择组` | 面板中隐藏地区手动选择组，只留自动组 |
-| `生成倍率组` | 生成「轻羽·低倍 / 重岳·高倍」分组 |
-| `过滤低倍率节点` / `过滤高倍率节点` / `过滤非地区节点` | 节点过滤（`过滤低倍率节点` 为上游新增） |
+| `生成倍率组` | 生成「⚖️ 轻羽·低倍 / 🔥 重岳·高倍」分组 |
+| `过滤低倍率节点` / `过滤高倍率节点` / `过滤非地区节点` | 节点过滤 |
 | `屏蔽国外QUIC` | 屏蔽国外 UDP 443（QUIC），配合 sniffer 自动回落 TCP |
 | `代理IPV4优先` / `代理IPV6优先` | 节点 IP 栈偏好（二者只开一个） |
-| `链式代理` | 自定义节点作为落地，经「合道·中转」中转 |
-| 各分流组（`映画·油管` 等） | 关闭后该策略组与对应规则整体移除 |
+| `链式代理` | 自定义节点作为落地，经「🌉 合道·中转」中转 |
+| 各分流组（`🎬 映画·油管` 等） | 关闭后该策略组与对应规则整体移除 |
 
 ---
 
@@ -151,16 +164,16 @@ https://raw.githubusercontent.com/JokerXiaoMo/guofeng-mihomo/main/Script/guofeng
 ```
 guofeng-mihomo
 ├── Script/
-│   └── guofeng-mihomo.js   # 覆写脚本本体
+│   └── taobai-zanhua.js    # 覆写脚本本体（桃白簪花）
 ├── docs/
-│   ├── index.html          # 在线主页（含二次元动效）
+│   ├── index.html          # 在线长卷（含动效）
 │   └── assets/
 │       └── hero.webp       # 主视觉背景图
 ├── README.md
 └── LICENSE
 ```
 
-> 想看动效版主页？开启 GitHub Pages：**Settings → Pages → Source 选 `Deploy from a branch` → Branch 选 `main`、目录选 `/docs`**（⚠️ 必须选 `/docs`，选 `/(root)` 会 404，因为 `index.html` 在 docs 里）。
+> 想看动效版长卷？开启 GitHub Pages：**Settings → Pages → Source 选 `Deploy from a branch` → Branch 选 `main`、目录选 `/docs`**（⚠️ 必须选 `/docs`，选 `/(root)` 会 404，因为 `index.html` 在 docs 里）。
 > 保存后等 1~2 分钟构建即可访问 `https://jokerxiaomo.github.io/guofeng-mihomo/`；本地直接双击 `docs/index.html` 也行。
 
 ---
@@ -183,35 +196,35 @@ guofeng-mihomo
 | `e2696c8` | 调整规则 |
 | `35c646e` | 优化 |
 
-同步原则：**分流逻辑、规则集、DNS 处理全部跟随上游**；仅策略组 / 地区命名保留云隐阁雅号，四项国风增强（`sniffer`、`global-client-fingerprint`、30s 保活、「御风」50ms 容差）保持不变。
+同步原则：**分流逻辑、规则集、DNS 处理全部跟随上游**；仅策略组 / 地区命名保留桃白簪花卷名，四项增强（`sniffer`、`global-client-fingerprint`、30s 保活、「🌸 寻花」50ms 容差）保持不变。
 
 ### 最近一次同步：`fefcb66` → `188ceec`（2 笔）
 
-| 提交 | 说明 | 云隐阁落地 |
+| 提交 | 说明 | 桃白簪花落地 |
 | :--- | :--- | :--- |
-| `188ceec` | feat: add microsoft_ip、apple_ip | 「云笈·微软」「玉果·苹果」新增 GeoIP 规则集与 `no-resolve` 规则：域名与 IP 双覆盖，命中更彻底 |
+| `188ceec` | feat: add microsoft_ip、apple_ip | 「🪟 云笈·微软」「🍎 玉果·苹果」新增 GeoIP 规则集与 `no-resolve` 规则：域名与 IP 双覆盖，命中更彻底 |
 | `001faf2` | perf: 优化配置检查 | `main()` 入口新增校验：配置中若带 `proxy-providers` 直接报错并提示改用机场原始配置覆写，避免产出无效配置 |
 
 ### 上一次同步：`35c646e` → `fefcb66`（4 笔）
 
-| 提交 | 说明 | 云隐阁落地 |
+| 提交 | 说明 | 桃白簪花落地 |
 | :--- | :--- | :--- |
 | `0d82dc3` | 优化倍率节点匹配 | 倍率正则前置符新增 `[`、`(`，后置符新增 `)`、`]`，`[0倍]`、`(2倍)` 这类带括号的节点名现在能正确归池 |
 | `95e9b27` | 优化简写节点域名策略处理，避免误匹配 | `simplifyDomainPolicy` 增加守卫：仅当策略域名集合与节点域名集合完全一致时才简写，否则原样输出 |
-| `3466ca3` | 将 googlefcm 添加到 fake-ip-filter | 「灵鸽·传讯」开关开启时，`rule-set:googlefcm` 会进入 `fake-ip-filter`，避免 FCM 推送被 fake-ip 干扰 |
+| `3466ca3` | 将 googlefcm 添加到 fake-ip-filter | 「💬 灵鸽·传讯」开关开启时，`rule-set:googlefcm` 会进入 `fake-ip-filter`，避免 FCM 推送被 fake-ip 干扰 |
 | `fefcb66` | docs: add Star History | README 文档改动，本仓库自行维护文档，未同步 |
 
-> ⚠️ 本次同步踩到一个「上游键名 vs 国风键名」的坑：上游新增代码写的是 `ruleOptionsEnable['FCM']`，而云隐阁把该开关改名为 `灵鸽·传讯`，直接照搬会导致新功能**静默失效**。已改为 `ruleOptionsEnable['灵鸽·传讯']`，并加了专项测试守护。
+> ⚠️ 本次同步踩到一个「上游键名 vs 本版键名」的坑：上游新增代码写的是 `ruleOptionsEnable['FCM']`，而本版把该开关改名为 `💬 灵鸽·传讯`，直接照搬会导致新功能**静默失效**。已改为 `ruleOptionsEnable['💬 灵鸽·传讯']`，并加了专项测试守护。
 
 ---
 
 ## 🙏 致谢
 
-> 以下名单**逐项核对过脚本内的实际引用**（引用次数以当前版本 `Script/guofeng-mihomo.js` 为准），排名分先后、诚意不分先后。
+> 以下名单**逐项核对过脚本内的实际引用**（引用次数以当前版本 `Script/taobai-zanhua.js` 为准），排名分先后、诚意不分先后。
 
 **⭐ 原脚本作者**
 
-- **[AIsouler/MyClash](https://github.com/AIsouler/MyClash)** —— 本项目的根基。覆写脚本基于其 `mihomoScript.js` 微改而来：节点过滤与地区归组、机场私有 DNS / hosts 修复、倍率识别、链式代理等核心能力均出自原作者之手，云隐阁不过是在巨人的肩上描了一层国风的漆。**强烈建议去给原项目点一个 Star。**
+- **[AIsouler/MyClash](https://github.com/AIsouler/MyClash)** —— 本项目的根基。覆写脚本基于其 `mihomoScript.js` 微改而来：节点过滤与地区归组、机场私有 DNS / hosts 修复、倍率识别、链式代理等核心能力均出自原作者之手，桃白簪花不过是在巨人的肩上簪了一枝花。**强烈建议去给原项目点一个 Star。**
 
 **🧠 内核与客户端**
 
@@ -263,14 +276,14 @@ guofeng-mihomo
 
 本项目文档与项目结构以 [MIT](LICENSE) 协议开源。
 
-覆写脚本 `Script/guofeng-mihomo.js` 为 [AIsouler/MyClash](https://github.com/AIsouler/MyClash)（未附带开源协议）之 `mihomoScript.js` 的修改版本，其著作权归属原作者 AIsouler；本项目在使用处均已显著标注来源。若原作者提出异议，将第一时间处理。
+覆写脚本 `Script/taobai-zanhua.js` 为 [AIsouler/MyClash](https://github.com/AIsouler/MyClash)（未附带开源协议）之 `mihomoScript.js` 的修改版本，其著作权归属原作者 AIsouler；本项目在使用处均已显著标注来源。若原作者提出异议，将第一时间处理。
 
 ---
 
 <div align="center">
 
-**若云隐阁为你遮过一阵风雨，欢迎点一个 ⭐ Star，也请记得给 [AIsouler/MyClash](https://github.com/AIsouler/MyClash) 点一个**
+**若桃白簪花为你簪过一枝春色，欢迎点一个 ⭐ Star，也请记得给 [AIsouler/MyClash](https://github.com/AIsouler/MyClash) 点一个**
 
-*阁中一盏灯，照夜行之人。*
+*簪花一树，与君同行。*
 
 </div>

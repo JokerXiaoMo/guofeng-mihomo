@@ -1,27 +1,59 @@
 /**
- * 🏮 云隐阁 · 国风二次元定制版 mihomo 配置覆写脚本
+ * 🌸 桃白簪花 · 执子之手 —— mihomo 配置覆写脚本
+ *
+ *   「以中国桃花与白桃为印，收存山河、人物与相守心事。」
+ *
  * 原作者：AIsouler（https://github.com/AIsouler/MyClash）
  * 原脚本：https://raw.githubusercontent.com/AIsouler/MyClash/main/Script/mihomoScript.js
- * 本版：基于原脚本微改 + 国风二次元化独创
- *   · 所有策略组/分流组更换为国风雅号（命名对照见下），匹配逻辑、规则引用与原版完全一致
+ * 本版：基于原脚本微改 + 「桃白簪花」意象重塑
+ *   · 全部策略组按「卷首 / 行止 / 山河 / 分卷」四层次重命名，匹配逻辑与规则引用与原版一致
  *   · 面向「超稳定、超低延迟访问各个 APP」的四项增强：
  *     1) sniffer 域名嗅探：QUIC 被拦截自动回落 TCP，视频/语音不断流
  *     2) global-client-fingerprint=chrome：统一 TLS 指纹，降低 CDN 风控拦截概率
  *     3) keep-alive-interval 30s + tcp-keep-alive-idle 30s：空闲保活，减少重连与延迟抖动
-  newConfig['find-process-mode'] = 'strict';
- *     4) 「御风」自动组以 50ms 容差 url-test 实时测速，始终走最低延迟线路
+ *     4) 自动组「🌸 寻花」以 50ms 容差 url-test 实时测速，始终走花瓣最轻的落处
  *
- * 命名对照（旧 → 新）：
- *   手动选择→「执印」手动　自动选择→「御风」自动　负载均衡→「混元」均衡
- *   默认代理→「太一」主道　直连→「凡尘」直连　漏网之鱼→「补天」兜底　GLOBAL→保持不变（兼容面板全局模式）
- *   中国香港→香江　中国澳门→濠镜　日本→东瀛　美国→花旗　新加坡→狮城　中国台湾→宝岛
- *   低倍率节点→轻羽·低倍　高倍率节点→重岳·高倍　其他节点→散修·散点
- *   自建节点→本命·自建　链式中转→合道·中转　链式落地→合道·落地
- *   FCM→灵鸽·传讯　YouTube→映画·油管　Google→星图·谷歌　AI→天工·灵智
- *   Microsoft→云笈·微软　Apple→玉果·苹果　Telegram→飞书·电报　Steam→雾阁·蒸汽
- *   TikTok→幻音·短影　Twitter→栖鸾·推特　Instagram→绘镜·影格　Netflix→映雪·奈飞
- *   Emby→藏经阁·影库　PikPak→行囊·网盘　Spotify→韶音·声乐　Crypto→通宝·加密
- *   EHentai→秘阁·E站　AdBlock→结界·拦截
+ * ── 命名体系 ──
+ *
+ * 【卷首 · 桃印起卷】总入口与选路
+ *   🍑 桃印 | 总卷      万流归卷，一切由此起笔
+ *   🖐️ 拾印 | 手动      按心而择，一枚印鉴亲手盖下
+ *   🌸 寻花 | 自动      循花瓣最轻的落处，自动择路
+ *   🍃 分花 | 均衡      分花同承，负荷不偏倚
+ *
+ * 【卷二 · 行止】三条去路
+ *   🏠 归檐 | 直连      乡音不远行，家门之内直去直回
+ *   🚫 掩扉 | 拦截      帘外不迎，广告与骚扰止于门前
+ *   🌙 拾遗 | 兜底      漏尽处皆有所归，未有遗落
+ *
+ * 【卷三 · 山河】五灵守卷，各镇一方
+ *   🏮 灯 | 香江　📜 卷 | 宝岛　🖌️ 砚 | 东瀛
+ *   ☁️ 羽 | 花旗　🧣 绫 | 狮城　🗺️ 濠镜
+ *   ⚖️ 轻羽·低倍　🔥 重岳·高倍　🪶 散修·散点
+ *   🌉 合道·中转 / 落地　🪶 本命·自建
+ *
+ * 【卷四 · 分卷】十余项服务各归其卷
+ *   💬 灵鸽·传讯　🎬 映画·油管　🗺️ 星图·谷歌　🤖 天工·灵智
+ *   🪟 云笈·微软　🍎 玉果·苹果　✈️ 飞书·电报　🎮 雾阁·蒸汽
+ *   🎵 幻音·短影　🕊️ 栖鸾·推特　📸 绘镜·影格　🎞️ 映雪·奈飞
+ *   📚 藏经阁·影库　🎒 行囊·网盘　🎧 韶音·声乐　🪙 通宝·加密
+ *   🔖 秘阁·E站　🚫 掩扉 | 拦截
+ *
+ * 命名对照（上游原名 → 桃白簪花）：
+ *   默认代理→🍑 桃印 | 总卷　手动选择→🖐️ 拾印 | 手动　自动选择→🌸 寻花 | 自动
+ *   负载均衡→🍃 分花 | 均衡　直连→🏠 归檐 | 直连　漏网之鱼→🌙 拾遗 | 兜底
+ *   GLOBAL→保持不变（兼容面板全局模式）
+ *   中国香港→🏮 灯 | 香江　中国澳门→🗺️ 濠镜　日本→🖌️ 砚 | 东瀛
+ *   美国→☁️ 羽 | 花旗　新加坡→🧣 绫 | 狮城　中国台湾→📜 卷 | 宝岛
+ *   低倍率节点→⚖️ 轻羽·低倍　高倍率节点→🔥 重岳·高倍　其他节点→🪶 散修·散点
+ *   自建节点→🪶 本命·自建　链式中转→🌉 合道·中转　链式落地→🌉 合道·落地
+ *   FCM→💬 灵鸽·传讯　YouTube→🎬 映画·油管　Google→🗺️ 星图·谷歌　AI→🤖 天工·灵智
+ *   Microsoft→🪟 云笈·微软　Apple→🍎 玉果·苹果　Telegram→✈️ 飞书·电报　Steam→🎮 雾阁·蒸汽
+ *   TikTok→🎵 幻音·短影　Twitter→🕊️ 栖鸾·推特　Instagram→📸 绘镜·影格　Netflix→🎞️ 映雪·奈飞
+ *   Emby→📚 藏经阁·影库　PikPak→🎒 行囊·网盘　Spotify→🎧 韶音·声乐　Crypto→🪙 通宝·加密
+ *   EHentai→🔖 秘阁·E站　AdBlock→🚫 掩扉 | 拦截
+ *
+ * 图标约定：意象 emoji + 空格 + 名称，简约不喧哗；不与订阅节点自带的旗帜冲突。
  * 友情推荐，非常好用、省电且内存占用低的代理软件：https://github.com/appshubcc/Bettbox
  */
 
@@ -37,29 +69,29 @@ const Compatible_With_Bettbox = { ruleOptionsEnable: true };
  */
 const ruleOptionsEnable = {
   // 基础策略组
-  '「执印」手动': true, // 是否启用「执印」手动策略组（原：手动选择）
-  '「御风」自动': true, // 是否启用「御风」自动策略组（原：自动选择）
-  '「混元」均衡': true, // 是否启用「混元」均衡策略组（原：负载均衡）
+  '🖐️ 拾印 | 手动': true, // 是否启用🖐️ 拾印 | 手动策略组（原：手动选择）
+  '🌸 寻花 | 自动': true, // 是否启用🌸 寻花 | 自动策略组（原：自动选择）
+  '🍃 分花 | 均衡': true, // 是否启用🍃 分花 | 均衡策略组（原：负载均衡）
 
   // 以下为分流策略配置
-  '灵鸽·传讯': true, // Google FCM 推送（灵鸽·传讯）
-  '映画·油管': true, // YouTube 视频（映画·油管）
-  '星图·谷歌': true, // Google 服务（星图·谷歌）
-  '天工·灵智': true, // 国外 AI 服务（天工·灵智）
-  '云笈·微软': true, // Microsoft 服务（云笈·微软）
-  '玉果·苹果': true, // Apple 服务（玉果·苹果）
-  '飞书·电报': true, // Telegram 通讯（飞书·电报）
-  '雾阁·蒸汽': true, // Steam 游戏（雾阁·蒸汽）
-  '幻音·短影': true, // TikTok 短视频（幻音·短影）
-  '栖鸾·推特': true, // Twitter 社交（栖鸾·推特）
-  '绘镜·影格': true, // Instagram 社交（绘镜·影格）
-  '映雪·奈飞': true, // Netflix 影视（映雪·奈飞）
-  '藏经阁·影库': true, // Emby 媒体库（藏经阁·影库）
-  '行囊·网盘': true, // PikPak 网盘（行囊·网盘）
-  '韶音·声乐': true, // Spotify 音乐（韶音·声乐）
-  '通宝·加密': true, // 加密货币（通宝·加密）
-  '秘阁·E站': true, // E-Hentai（秘阁·E站）
-  '结界·拦截': true, // 广告拦截（结界·拦截）
+  '💬 灵鸽·传讯': true, // Google FCM 推送（💬 灵鸽·传讯）
+  '🎬 映画·油管': true, // YouTube 视频（🎬 映画·油管）
+  '🗺️ 星图·谷歌': true, // Google 服务（🗺️ 星图·谷歌）
+  '🤖 天工·灵智': true, // 国外 AI 服务（🤖 天工·灵智）
+  '🪟 云笈·微软': true, // Microsoft 服务（🪟 云笈·微软）
+  '🍎 玉果·苹果': true, // Apple 服务（🍎 玉果·苹果）
+  '✈️ 飞书·电报': true, // Telegram 通讯（✈️ 飞书·电报）
+  '🎮 雾阁·蒸汽': true, // Steam 游戏（🎮 雾阁·蒸汽）
+  '🎵 幻音·短影': true, // TikTok 短视频（🎵 幻音·短影）
+  '🕊️ 栖鸾·推特': true, // Twitter 社交（🕊️ 栖鸾·推特）
+  '📸 绘镜·影格': true, // Instagram 社交（📸 绘镜·影格）
+  '🎞️ 映雪·奈飞': true, // Netflix 影视（🎞️ 映雪·奈飞）
+  '📚 藏经阁·影库': true, // Emby 媒体库（📚 藏经阁·影库）
+  '🎒 行囊·网盘': true, // PikPak 网盘（🎒 行囊·网盘）
+  '🎧 韶音·声乐': true, // Spotify 音乐（🎧 韶音·声乐）
+  '🪙 通宝·加密': true, // 加密货币（🪙 通宝·加密）
+  '🔖 秘阁·E站': true, // E-Hentai（🔖 秘阁·E站）
+  '🚫 掩扉 | 拦截': true, // 广告拦截（🚫 掩扉 | 拦截）
 
   // 以下为非分流策略配置
   生成地区自动选择组: true, // 是否生成地区自动选择策略组
@@ -72,27 +104,27 @@ const ruleOptionsEnable = {
   屏蔽国外QUIC: true, // 是否屏蔽国外QUIC流量
   代理IPV4优先: false, // 是否将订阅节点统一为 IPv4 优先（与“代理IPV6优先”同时开启时不生效）
   代理IPV6优先: false, // 是否将订阅节点统一为 IPv6 优先（与“代理IPV4优先”同时开启时不生效）
-  链式代理: false, // 是否启用链式代理（自定义节点作为落地节点，经“链式中转”策略组中转）
+  链式代理: false, // 是否启用链式代理（自定义节点作为落地节点，经「🌉 合道·中转」策略组中转）
 };
 
 // 定义前置规则
 const prefixRules = [
-  // 私有网络 → 凡尘直连
-  'RULE-SET,private,「凡尘」直连',
+  // 私有网络 → 归檐直连
+  'RULE-SET,private,🏠 归檐 | 直连',
 
-  // 国内 → 凡尘直连
-  'RULE-SET,geolocation-cn,「凡尘」直连',
-  'RULE-SET,games_cn,「凡尘」直连', // 已包含 steam 下载域名
-  'RULE-SET,epicgames,「凡尘」直连',
-  'RULE-SET,nvidia_cn,「凡尘」直连',
-  'RULE-SET,apple_cn,「凡尘」直连',
-  'RULE-SET,microsoft_cn,「凡尘」直连',
-  'DOMAIN,fsend.cn,「凡尘」直连',
-  'DOMAIN,international-gfe.download.nvidia.com,「凡尘」直连',
+  // 国内 → 归檐直连
+  'RULE-SET,geolocation-cn,🏠 归檐 | 直连',
+  'RULE-SET,games_cn,🏠 归檐 | 直连', // 已包含 steam 下载域名
+  'RULE-SET,epicgames,🏠 归檐 | 直连',
+  'RULE-SET,nvidia_cn,🏠 归檐 | 直连',
+  'RULE-SET,apple_cn,🏠 归檐 | 直连',
+  'RULE-SET,microsoft_cn,🏠 归檐 | 直连',
+  'DOMAIN,fsend.cn,🏠 归檐 | 直连',
+  'DOMAIN,international-gfe.download.nvidia.com,🏠 归檐 | 直连',
 ];
 
-// 此处添加自定义节点，填入下方[]内（可选，留空则不生成“自建节点”策略组）
-// 自定义节点不参与节点过滤与 hosts 改写；与订阅节点（标准化后）重名时自动添加“本命-”前缀
+// 此处添加自定义节点，填入下方[]内（可选，留空则不生成「🪶 本命·自建」策略组）
+// 自定义节点不参与节点过滤与 hosts 改写；与订阅节点（标准化后）重名时自动添加「🪶 本命-」前缀
 // 示例：
 // const customizeProxies = [
 //   {
@@ -115,7 +147,7 @@ const prefixRules = [
 const customizeProxies = [];
 
 // 链式代理启用时，自定义节点的 dialer-proxy 引用目标
-const dialerProxyName = '合道·中转';
+const dialerProxyName = '🌉 合道·中转';
 
 // 定义全局排除节点的正则表达式，用于排除非地区节点
 const excludeFilter =
@@ -126,69 +158,69 @@ const blockForeignQuic = [
   'AND,((NETWORK,UDP),(DST-PORT,443),(NOT,((OR,((RULE-SET,cn_additional),(RULE-SET,cn_ip,no-resolve)))))),REJECT',
 ];
 
-// 凡尘·直连节点
+// 归檐·直连节点
 const directProxies = [
   {
-    name: '🇨🇳 凡尘 | 双栈',
+    name: '🇨🇳 归檐 | 双栈',
     type: 'direct',
   },
   {
-    name: '🇨🇳 凡尘 | IPv4优先',
+    name: '🇨🇳 归檐 | IPv4优先',
     type: 'direct',
     'ip-version': 'ipv4-prefer',
   },
   {
-    name: '🇨🇳 凡尘 | IPv6优先',
+    name: '🇨🇳 归檐 | IPv6优先',
     type: 'direct',
     'ip-version': 'ipv6-prefer',
   },
   {
-    name: '🇨🇳 凡尘 | 仅IPv4',
+    name: '🇨🇳 归檐 | 仅IPv4',
     type: 'direct',
     'ip-version': 'ipv4',
   },
   {
-    name: '🇨🇳 凡尘 | 仅IPv6',
+    name: '🇨🇳 归檐 | 仅IPv6',
     type: 'direct',
     'ip-version': 'ipv6',
   },
 ];
 
-// 定义地区策略组（国风雅号：香江/濠镜/东瀛/花旗/狮城/宝岛）
+// 定义地区策略组（五灵守卷：灯·香江 / 卷·宝岛 / 砚·东瀛 / 羽·花旗 / 绫·狮城 / 濠镜）
 const regionDefinitions = [
   {
-    name: '香江',
+    name: '🏮 灯 | 香江',
     flag: '🇭🇰',
     regex: /🇭🇰|香港|(?<![A-Za-z])HKG?(?![A-Za-z])|hong\s*kong/i,
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png',
   },
   {
-    name: '濠镜',
+    name: '🗺️ 濠镜',
     flag: '🇲🇴',
     regex: /🇲🇴|澳门|濠江|濠镜|(?<![A-Za-z])MACAU(?![A-Za-z])|(?<![A-Za-z])MO(?![A-Za-z])/i,
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Macao.png',
   },
   {
-    name: '东瀛',
+    name: '🖌️ 砚 | 东瀛',
     flag: '🇯🇵',
     regex: /🇯🇵|日本|东京|大阪|京都|(?<![A-Za-z])JPN?(?![A-Za-z])|japan/i,
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png',
   },
   {
-    name: '花旗',
+    name: '☁️ 羽 | 花旗',
     flag: '🇺🇸',
     regex:
       /🇺🇸|美国|纽约|洛杉矶|旧金山|芝加哥|休斯顿|迈阿密|西雅图|波士顿|华盛顿|拉斯维加斯|圣何塞|圣地亚哥|(?<![A-Za-z])USA?(?![A-Za-z])|america|united\s*states/i,
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png',
   },
   {
-    name: '狮城',
+    name: '🧣 绫 | 狮城',
     flag: '🇸🇬',
     regex: /🇸🇬|新加坡|狮城|(?<![A-Za-z])SGP?(?![A-Za-z])|singapore/i,
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png',
   },
   {
-    name: '宝岛',
+    name: '📜 卷 | 宝岛',
     flag: '🇨🇳',
     regex: /🇨🇳|台湾|台北|高雄|(?<![A-Za-z])TWN?(?![A-Za-z])|taiwan/i,
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png',
@@ -196,8 +228,8 @@ const regionDefinitions = [
 ];
 
 // 定义倍率策略组
-const lowRateRegionName = '轻羽·低倍';
-const highRateRegionName = '重岳·高倍';
+const lowRateRegionName = '⚖️ 轻羽·低倍';
+const highRateRegionName = '🔥 重岳·高倍';
 
 const rateRegionDefinitions = [
   {
@@ -360,19 +392,19 @@ const loadBalanceBaseOption = {
 // 定义基础策略组
 const baseGroups = [
   {
-    name: '「执印」手动',
+    name: '🖐️ 拾印 | 手动',
     baseOption: selectBaseOption,
     includeAll: true,
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Static.png',
   },
   {
-    name: '「御风」自动',
+    name: '🌸 寻花 | 自动',
     baseOption: urlTestBaseOption,
     includeAll: true,
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png',
   },
   {
-    name: '「混元」均衡',
+    name: '🍃 分花 | 均衡',
     baseOption: loadBalanceBaseOption,
     includeAll: true,
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png',
@@ -383,10 +415,10 @@ const baseGroups = [
 const serviceConfigs = [
   ...baseGroups,
   {
-    name: '灵鸽·传讯',
+    name: '💬 灵鸽·传讯',
     baseOption: selectBaseOption,
     direct: true,
-    defaultSelected: '「凡尘」直连',
+    defaultSelected: '🏠 归檐 | 直连',
     providers: {
       googlefcm: {
         ...ruleProviderCommonDomain,
@@ -396,10 +428,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/MiToverG422/Qure@master/IconSet/Color/fcm.png',
-    rules: ['RULE-SET,googlefcm,灵鸽·传讯'],
+    rules: ['RULE-SET,googlefcm,💬 灵鸽·传讯'],
   },
   {
-    name: '映画·油管',
+    name: '🎬 映画·油管',
     baseOption: selectBaseOption,
     providers: {
       youtube: {
@@ -410,10 +442,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png',
-    rules: ['RULE-SET,youtube,映画·油管'],
+    rules: ['RULE-SET,youtube,🎬 映画·油管'],
   },
   {
-    name: '星图·谷歌',
+    name: '🗺️ 星图·谷歌',
     baseOption: selectBaseOption,
     providers: {
       google: {
@@ -430,12 +462,12 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png',
-    rules: ['RULE-SET,google,星图·谷歌', 'RULE-SET,google_ip,星图·谷歌,no-resolve'],
+    rules: ['RULE-SET,google,🗺️ 星图·谷歌', 'RULE-SET,google_ip,🗺️ 星图·谷歌,no-resolve'],
   },
   {
-    name: '天工·灵智',
+    name: '🤖 天工·灵智',
     baseOption: selectBaseOption,
-    defaultSelected: '花旗',
+    defaultSelected: '☁️ 羽 | 花旗',
     providers: {
       ai: {
         ...ruleProviderCommonDomain,
@@ -445,10 +477,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png',
-    rules: ['RULE-SET,ai,天工·灵智'],
+    rules: ['RULE-SET,ai,🤖 天工·灵智'],
   },
   {
-    name: '云笈·微软',
+    name: '🪟 云笈·微软',
     baseOption: selectBaseOption,
     direct: true,
     providers: {
@@ -472,10 +504,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png',
-    rules: ['RULE-SET,github,「太一」主道', 'RULE-SET,microsoft,云笈·微软', 'RULE-SET,microsoft_ip,云笈·微软,no-resolve'],
+    rules: ['RULE-SET,github,🍑 桃印 | 总卷', 'RULE-SET,microsoft,🪟 云笈·微软', 'RULE-SET,microsoft_ip,🪟 云笈·微软,no-resolve'],
   },
   {
-    name: '玉果·苹果',
+    name: '🍎 玉果·苹果',
     baseOption: selectBaseOption,
     direct: true,
     providers: {
@@ -493,10 +525,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png',
-    rules: ['RULE-SET,apple,玉果·苹果', 'RULE-SET,apple_ip,玉果·苹果,no-resolve'],
+    rules: ['RULE-SET,apple,🍎 玉果·苹果', 'RULE-SET,apple_ip,🍎 玉果·苹果,no-resolve'],
   },
   {
-    name: '飞书·电报',
+    name: '✈️ 飞书·电报',
     baseOption: selectBaseOption,
     providers: {
       telegram: {
@@ -513,10 +545,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png',
-    rules: ['RULE-SET,telegram,飞书·电报', 'RULE-SET,telegram_ip,飞书·电报,no-resolve'],
+    rules: ['RULE-SET,telegram,✈️ 飞书·电报', 'RULE-SET,telegram_ip,✈️ 飞书·电报,no-resolve'],
   },
   {
-    name: '雾阁·蒸汽',
+    name: '🎮 雾阁·蒸汽',
     baseOption: selectBaseOption,
     direct: true,
     providers: {
@@ -534,12 +566,12 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png',
-    rules: ['RULE-SET,steam,雾阁·蒸汽', 'RULE-SET,steam_ip,雾阁·蒸汽,no-resolve'],
+    rules: ['RULE-SET,steam,🎮 雾阁·蒸汽', 'RULE-SET,steam_ip,🎮 雾阁·蒸汽,no-resolve'],
   },
   {
-    name: '幻音·短影',
+    name: '🎵 幻音·短影',
     baseOption: selectBaseOption,
-    defaultSelected: '东瀛',
+    defaultSelected: '🖌️ 砚 | 东瀛',
     providers: {
       tiktok: {
         ...ruleProviderCommonDomain,
@@ -555,10 +587,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png',
-    rules: ['RULE-SET,tiktok,幻音·短影', 'RULE-SET,tiktok_ip,幻音·短影,no-resolve'],
+    rules: ['RULE-SET,tiktok,🎵 幻音·短影', 'RULE-SET,tiktok_ip,🎵 幻音·短影,no-resolve'],
   },
   {
-    name: '栖鸾·推特',
+    name: '🕊️ 栖鸾·推特',
     baseOption: selectBaseOption,
     providers: {
       twitter: {
@@ -575,10 +607,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png',
-    rules: ['RULE-SET,twitter,栖鸾·推特', 'RULE-SET,twitter_ip,栖鸾·推特,no-resolve'],
+    rules: ['RULE-SET,twitter,🕊️ 栖鸾·推特', 'RULE-SET,twitter_ip,🕊️ 栖鸾·推特,no-resolve'],
   },
   {
-    name: '绘镜·影格',
+    name: '📸 绘镜·影格',
     baseOption: selectBaseOption,
     providers: {
       instagram: {
@@ -589,10 +621,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Instagram.png',
-    rules: ['RULE-SET,instagram,绘镜·影格'],
+    rules: ['RULE-SET,instagram,📸 绘镜·影格'],
   },
   {
-    name: '映雪·奈飞',
+    name: '🎞️ 映雪·奈飞',
     baseOption: selectBaseOption,
     providers: {
       netflix: {
@@ -609,10 +641,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png',
-    rules: ['RULE-SET,netflix,映雪·奈飞', 'RULE-SET,netflix_ip,映雪·奈飞,no-resolve'],
+    rules: ['RULE-SET,netflix,🎞️ 映雪·奈飞', 'RULE-SET,netflix_ip,🎞️ 映雪·奈飞,no-resolve'],
   },
   {
-    name: '藏经阁·影库',
+    name: '📚 藏经阁·影库',
     baseOption: selectBaseOption,
     direct: true,
     providers: {
@@ -631,22 +663,22 @@ const serviceConfigs = [
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Emby.png',
     rules: [
-      'RULE-SET,emby,藏经阁·影库',
-      'RULE-SET,emos,藏经阁·影库',
-      'DOMAIN-SUFFIX,mb3admin.com,藏经阁·影库',
-      'DOMAIN-SUFFIX,nubebelle.com,藏经阁·影库',
-      'DOMAIN-KEYWORD,emby,藏经阁·影库',
-      'PROCESS-NAME,com.mb.android,藏经阁·影库',
-      'PROCESS-NAME,tv.emby.embyatv,藏经阁·影库',
-      'PROCESS-NAME,com.hush.yamby,藏经阁·影库',
-      'PROCESS-NAME,com.jellycine.app,藏经阁·影库',
-      'PROCESS-NAME,com.mountains.hills,藏经阁·影库',
-      'PROCESS-NAME,RodelPlayer.App.exe,藏经阁·影库',
-      'PROCESS-NAME,com.feifeiduck.capyplayer,藏经阁·影库',
+      'RULE-SET,emby,📚 藏经阁·影库',
+      'RULE-SET,emos,📚 藏经阁·影库',
+      'DOMAIN-SUFFIX,mb3admin.com,📚 藏经阁·影库',
+      'DOMAIN-SUFFIX,nubebelle.com,📚 藏经阁·影库',
+      'DOMAIN-KEYWORD,emby,📚 藏经阁·影库',
+      'PROCESS-NAME,com.mb.android,📚 藏经阁·影库',
+      'PROCESS-NAME,tv.emby.embyatv,📚 藏经阁·影库',
+      'PROCESS-NAME,com.hush.yamby,📚 藏经阁·影库',
+      'PROCESS-NAME,com.jellycine.app,📚 藏经阁·影库',
+      'PROCESS-NAME,com.mountains.hills,📚 藏经阁·影库',
+      'PROCESS-NAME,RodelPlayer.App.exe,📚 藏经阁·影库',
+      'PROCESS-NAME,com.feifeiduck.capyplayer,📚 藏经阁·影库',
     ],
   },
   {
-    name: '行囊·网盘',
+    name: '🎒 行囊·网盘',
     baseOption: selectBaseOption,
     direct: true,
     providers: {
@@ -658,10 +690,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/lige47/QuanX-icon-rule@main/icon/03CNSoft/pikpak.png',
-    rules: ['RULE-SET,pikpak,行囊·网盘'],
+    rules: ['RULE-SET,pikpak,🎒 行囊·网盘'],
   },
   {
-    name: '韶音·声乐',
+    name: '🎧 韶音·声乐',
     baseOption: selectBaseOption,
     direct: true,
     providers: {
@@ -679,12 +711,12 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png',
-    rules: ['RULE-SET,spotify,韶音·声乐', 'RULE-SET,spotify_ip,韶音·声乐,no-resolve'],
+    rules: ['RULE-SET,spotify,🎧 韶音·声乐', 'RULE-SET,spotify_ip,🎧 韶音·声乐,no-resolve'],
   },
   {
-    name: '通宝·加密',
+    name: '🪙 通宝·加密',
     baseOption: selectBaseOption,
-    defaultSelected: '东瀛',
+    defaultSelected: '🖌️ 砚 | 东瀛',
     providers: {
       cryptocurrency: {
         ...ruleProviderCommonDomain,
@@ -694,12 +726,12 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/lige47/QuanX-icon-rule@main/icon/04ProxySoft/Bitcoin.png',
-    rules: ['RULE-SET,cryptocurrency,通宝·加密'],
+    rules: ['RULE-SET,cryptocurrency,🪙 通宝·加密'],
   },
   {
-    name: '秘阁·E站',
+    name: '🔖 秘阁·E站',
     baseOption: selectBaseOption,
-    defaultSelected: '花旗',
+    defaultSelected: '☁️ 羽 | 花旗',
     providers: {
       ehentai: {
         ...ruleProviderCommonDomain,
@@ -709,10 +741,10 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/lige47/QuanX-icon-rule@main/icon/04ProxySoft/exhentai.png',
-    rules: ['RULE-SET,ehentai,秘阁·E站'],
+    rules: ['RULE-SET,ehentai,🔖 秘阁·E站'],
   },
   {
-    name: '结界·拦截',
+    name: '🚫 掩扉 | 拦截',
     baseOption: selectBaseOption,
     reject: true,
     providers: {
@@ -724,7 +756,7 @@ const serviceConfigs = [
       },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Advertising.png',
-    rules: ['RULE-SET,adblockmihomolite,结界·拦截'],
+    rules: ['RULE-SET,adblockmihomolite,🚫 掩扉 | 拦截'],
   },
 ];
 
@@ -877,7 +909,7 @@ function createRegionGroup(name, icon, proxies) {
   const hideManualSelectGroupEnabled = ruleOptionsEnable.隐藏地区手动选择组;
 
   if (generateRegionAutoSelectEnabled) {
-    const urlTestName = `${name}·御风`;
+    const urlTestName = `${name}·寻花`;
     return [
       {
         ...urlTestBaseOption,
@@ -933,7 +965,7 @@ function buildRegionGroups(filteredProxies, customProxies) {
   if (otherProxies.length > 0) {
     generatedRegionGroups.push(
       ...createRegionGroup(
-        '散修·散点',
+        '🪶 散修·散点',
         'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/World_Map.png',
         otherProxies,
       ),
@@ -946,8 +978,8 @@ function buildRegionGroups(filteredProxies, customProxies) {
 // ---构建自定义节点组---
 
 /**
- * 处理自定义节点：标准化名称、与订阅节点重名时添加“本命-”前缀、内部去重，
- * 并构建“自建节点”策略组。
+ * 处理自定义节点：标准化名称、与订阅节点重名时添加「🪶 本命-」前缀、内部去重，
+ * 并构建「🪶 本命·自建」策略组。
  * 自定义节点不参与订阅节点过滤，也不参与 hosts 改写及 DNS 域名处理。
  */
 function buildCustomizeGroups(filteredProxies, customizeList = customizeProxies) {
@@ -983,7 +1015,7 @@ function buildCustomizeGroups(filteredProxies, customizeList = customizeProxies)
 
   const customGroup = {
     ...selectBaseOption,
-    name: chainEnabled ? '合道·落地' : '本命·自建',
+    name: chainEnabled ? '🌉 合道·落地' : '🪶 本命·自建',
     proxies: customProxyNames,
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Server.png',
   };
@@ -1023,13 +1055,13 @@ function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customize
 
   functionalGroups.push({
     ...selectBaseOption,
-    name: '「太一」主道',
+    name: '🍑 桃印 | 总卷',
     proxies: [...groupNamesOfSelect, ...baseGroupNames, ...customGroupNames],
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png',
   });
 
   const orderedServiceConfigs = [
-    ...serviceConfigs.filter((svc) => svc.name === '结界·拦截'),
+    ...serviceConfigs.filter((svc) => svc.name === '🚫 掩扉 | 拦截'),
     ...serviceConfigs.filter((svc) => svc.name !== 'AdBlock'),
   ];
   for (const svc of orderedServiceConfigs) {
@@ -1049,14 +1081,14 @@ function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customize
       groupProxies = ['REJECT', 'REJECT-DROP', 'PASS'];
     } else {
       groupProxies = !addAllNodesToServiceGroupsEnabled
-        ? ['「太一」主道', ...customGroupNames, ...baseGroupNames, ...groupNamesOfSelect, ...(svc.direct ? ['「凡尘」直连'] : [])]
+        ? ['🍑 桃印 | 总卷', ...customGroupNames, ...baseGroupNames, ...groupNamesOfSelect, ...(svc.direct ? ['🏠 归檐 | 直连'] : [])]
         : [
-            '「太一」主道',
+            '🍑 桃印 | 总卷',
             ...customGroupNames,
             ...baseGroupNames,
             ...groupNamesOfSelect,
             ...allProxiesNames,
-            ...(svc.direct ? ['「凡尘」直连'] : []),
+            ...(svc.direct ? ['🏠 归檐 | 直连'] : []),
           ];
     }
 
@@ -1073,8 +1105,8 @@ function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customize
 
   functionalGroups.push({
     ...selectBaseOption,
-    name: '「补天」兜底',
-    proxies: ['「太一」主道', '「凡尘」直连', ...groupNamesOfSelect],
+    name: '🌙 拾遗 | 兜底',
+    proxies: ['🍑 桃印 | 总卷', '🏠 归檐 | 直连', ...groupNamesOfSelect],
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Stack.png',
   });
 
@@ -1094,7 +1126,7 @@ function buildFunctionalGroups(filteredProxies, generatedRegionGroups, customize
 
   const directGroup = {
     ...selectBaseOption,
-    name: '「凡尘」直连',
+    name: '🏠 归檐 | 直连',
     proxies: [...directProxies.map((p) => p.name)],
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/China.png',
     hidden: hideManualSelectGroupEnabled,
@@ -1207,7 +1239,7 @@ const commonDnsRegex = new RegExp(
 // 国内外 DNS 定义
 const chinaDNS = ['223.5.5.5#DIRECT', '119.29.29.29#DIRECT'];
 const chinaDohDNS = ['https://223.5.5.5/dns-query#DIRECT', 'https://1.12.12.12/dns-query#DIRECT'];
-const foreignDNS = ['https://cloudflare-dns.com/dns-query#「太一」主道', 'https://dns.google/dns-query#「太一」主道'];
+const foreignDNS = ['https://cloudflare-dns.com/dns-query#🍑 桃印 | 总卷', 'https://dns.google/dns-query#🍑 桃印 | 总卷'];
 
 /**
  * hosts 匹配优先级：精确 > +. > . > *（同级按出现顺序）
@@ -1472,7 +1504,7 @@ function buildDnsAndHostsConfig(config, filteredProxies) {
       'rule-set:private',
       'rule-set:fakeip_filter',
       'rule-set:geolocation-cn',
-      ...(ruleOptionsEnable['灵鸽·传讯'] ? ['rule-set:googlefcm'] : []),
+      ...(ruleOptionsEnable['💬 灵鸽·传讯'] ? ['rule-set:googlefcm'] : []),
       ...proxyFakeIpFilter,
     ],
     'proxy-server-nameserver': chinaDohDNS,
@@ -1568,7 +1600,7 @@ function main(config) {
     'dns-hijack': ['any:53', 'tcp://any:53'],
   };
 
-  // 🏮 国风增强：TLS/HTTP 域名嗅探，各 APP 分流更精准；QUIC 被拦自动回落 TCP，视频/语音不断流
+  // 🏮 桃白簪花增强：TLS/HTTP 域名嗅探，各 APP 分流更精准；QUIC 被拦自动回落 TCP，视频/语音不断流
   newConfig['sniffer'] = {
     enable: true,
     'override-destination': false,
@@ -1594,11 +1626,11 @@ function main(config) {
     ...(ruleOptionsEnable.屏蔽国外QUIC ? blockForeignQuic : []),
     ...functionalRules,
 
-    // 补天·兜底规则
-    'RULE-SET,geolocation-!cn,「太一」主道',
-    'RULE-SET,cn_ip,「凡尘」直连',
-    'RULE-SET,private_ip,「凡尘」直连',
-    'MATCH,「补天」兜底',
+    // 拾遗·兜底规则
+    'RULE-SET,geolocation-!cn,🍑 桃印 | 总卷',
+    'RULE-SET,cn_ip,🏠 归檐 | 直连',
+    'RULE-SET,private_ip,🏠 归檐 | 直连',
+    'MATCH,🌙 拾遗 | 兜底',
   ];
 
   return newConfig;

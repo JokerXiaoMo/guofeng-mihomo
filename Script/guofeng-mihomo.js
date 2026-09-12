@@ -464,9 +464,15 @@ const serviceConfigs = [
         path: './ruleset/microsoft.mrs',
         'path-in-bundle': 'geo/geosite/microsoft.mrs',
       },
+      microsoft_ip: {
+        ...ruleProviderCommonIpcidr,
+        url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geoip/microsoft.mrs',
+        path: './ruleset/microsoft_ip.mrs',
+        'path-in-bundle': 'geo/geoip/microsoft.mrs',
+      },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png',
-    rules: ['RULE-SET,github,「太一」主道', 'RULE-SET,microsoft,云笈·微软'],
+    rules: ['RULE-SET,github,「太一」主道', 'RULE-SET,microsoft,云笈·微软', 'RULE-SET,microsoft_ip,云笈·微软,no-resolve'],
   },
   {
     name: '玉果·苹果',
@@ -479,9 +485,15 @@ const serviceConfigs = [
         path: './ruleset/apple.mrs',
         'path-in-bundle': 'geo/geosite/apple.mrs',
       },
+      apple_ip: {
+        ...ruleProviderCommonIpcidr,
+        url: 'https://fastly.jsdelivr.net/gh/appshubcc/bett-rules@meta/geo/geoip/apple.mrs',
+        path: './ruleset/apple_ip.mrs',
+        'path-in-bundle': 'geo/geoip/apple.mrs',
+      },
     },
     icon: 'https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png',
-    rules: ['RULE-SET,apple,玉果·苹果'],
+    rules: ['RULE-SET,apple,玉果·苹果', 'RULE-SET,apple_ip,玉果·苹果,no-resolve'],
   },
   {
     name: '飞书·电报',
@@ -1498,6 +1510,10 @@ function buildDnsAndHostsConfig(config, filteredProxies) {
  * 主入口：覆写机场订阅配置，生成完整 mihomo 配置
  */
 function main(config) {
+  if (config['proxy-providers'] && Object.keys(config['proxy-providers']).length > 0) {
+    throw new Error('配置文件中包含 proxy-providers，请使用机场提供的配置文件进行覆写');
+  }
+
   const newConfig = {};
 
   const filteredProxies = filterAndNormalizeProxies(config);
